@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
+import { PawsBot } from "@/components/chat/PawsBot";
 import Index from "./pages/Index";
 import Learn from "./pages/Learn";
 import PetDetail from "./pages/PetDetail";
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <PawsBot />
         </BrowserRouter>
       </TooltipProvider>
     </AuthProvider>
