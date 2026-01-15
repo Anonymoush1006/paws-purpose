@@ -22,6 +22,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          glow: "hsl(var(--primary-glow))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -57,7 +58,6 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Pet type colors
         pet: {
           dog: "hsl(var(--pet-dog))",
           cat: "hsl(var(--pet-cat))",
@@ -69,7 +69,6 @@ export default {
           turtle: "hsl(var(--pet-turtle))",
           other: "hsl(var(--pet-other))",
         },
-        // Status colors
         success: {
           DEFAULT: "hsl(var(--success))",
           foreground: "hsl(var(--success-foreground))",
@@ -78,10 +77,14 @@ export default {
           DEFAULT: "hsl(var(--warning))",
           foreground: "hsl(var(--warning-foreground))",
         },
-        // Gamification
         gold: "hsl(var(--gold))",
         silver: "hsl(var(--silver))",
         bronze: "hsl(var(--bronze))",
+        glow: {
+          pink: "hsl(var(--glow-pink))",
+          lavender: "hsl(var(--glow-lavender))",
+          mint: "hsl(var(--glow-mint))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
