@@ -1,9 +1,10 @@
+import { forwardRef } from 'react';
 import { Link } from 'react-router-dom';
 import { PawPrint, Heart } from 'lucide-react';
 
-export function Footer() {
+export const Footer = forwardRef<HTMLElement>(function Footer(_, ref) {
   return (
-    <footer className="border-t bg-muted/30">
+    <footer ref={ref} className="border-t bg-muted/30">
       <div className="container py-8 md:py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* Brand */}
@@ -56,4 +57,6 @@ export function Footer() {
       </div>
     </footer>
   );
-}
+});
+
+Footer.displayName = 'Footer';

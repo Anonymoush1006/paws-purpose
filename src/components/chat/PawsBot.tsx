@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, forwardRef } from 'react';
 import { MessageCircle, X, Send, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -19,7 +19,7 @@ const quickReplies = [
   { id: 'why-paws', label: '❤️ Why Paws & Purpose?', emoji: '❤️' },
 ];
 
-export function PawsBot() {
+export const PawsBot = forwardRef<HTMLDivElement>(function PawsBot(_, ref) {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -101,7 +101,7 @@ export function PawsBot() {
   };
 
   return (
-    <>
+    <div ref={ref}>
       {/* Chat Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -257,6 +257,8 @@ export function PawsBot() {
           animation: bounce-subtle 2s ease-in-out infinite;
         }
       `}</style>
-    </>
+    </div>
   );
-}
+});
+
+PawsBot.displayName = 'PawsBot';
