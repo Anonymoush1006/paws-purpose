@@ -3,6 +3,7 @@ import { MessageCircle, X, Send, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { supabase } from '@/integrations/supabase/client';
+import { getPetEmoji } from '@/components/icons/PetIcons';
 
 interface Message {
   id: string;
@@ -11,10 +12,10 @@ interface Message {
 }
 
 const quickReplies = [
-  { id: 'dog-care', label: '🐶 Dog Care', emoji: '🐶' },
-  { id: 'cat-care', label: '🐱 Cat Care', emoji: '🐱' },
-  { id: 'hamster-care', label: '🐹⚙️ Hamster Care', emoji: '🐹⚙️' },
-  { id: 'guinea-pig-care', label: '🐹🥕 Guinea Pig Care', emoji: '🐹🥕' },
+  { id: 'dog-care', label: `${getPetEmoji('dog')} Dog Care`, emoji: getPetEmoji('dog') },
+  { id: 'cat-care', label: `${getPetEmoji('cat')} Cat Care`, emoji: getPetEmoji('cat') },
+  { id: 'hamster-care', label: `${getPetEmoji('hamster')} Hamster Care`, emoji: getPetEmoji('hamster') },
+  { id: 'guinea-pig-care', label: `${getPetEmoji('guinea_pig')} Guinea Pig Care`, emoji: getPetEmoji('guinea_pig') },
   { id: 'fun-facts', label: '🐾 Fun Pet Facts', emoji: '🐾' },
   { id: 'why-paws', label: '❤️ Why Paws & Purpose?', emoji: '❤️' },
 ];
@@ -107,7 +108,7 @@ export const PawsBot = forwardRef<HTMLDivElement>(function PawsBot(_, ref) {
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
           "fixed bottom-6 right-6 z-50 rounded-full p-4 shadow-lg transition-all duration-300",
-          "bg-gradient-to-br from-[hsl(340,60%,75%)] to-[hsl(280,45%,70%)]",
+          "bg-gradient-to-br from-glow-sky to-glow-periwinkle",
           "hover:scale-110 hover:shadow-xl",
           "animate-bounce-subtle"
         )}
@@ -130,18 +131,18 @@ export const PawsBot = forwardRef<HTMLDivElement>(function PawsBot(_, ref) {
       <div
         className={cn(
           "fixed bottom-24 right-6 z-50 w-[360px] max-w-[calc(100vw-48px)] rounded-3xl shadow-2xl transition-all duration-300 overflow-hidden",
-          "bg-gradient-to-b from-[hsl(340,50%,97%)] to-[hsl(145,40%,97%)]",
+          "bg-gradient-to-b from-card to-secondary/30",
           isOpen ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-4 scale-95 pointer-events-none"
         )}
       >
         {/* Header */}
-        <div className="bg-gradient-to-r from-[hsl(340,60%,80%)] to-[hsl(280,45%,75%)] p-4">
+        <div className="bg-gradient-to-r from-glow-sky to-glow-periwinkle p-4">
           <div className="flex items-center gap-3">
             <div className="relative">
               <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center text-2xl shadow-md">
                 🐾
               </div>
-              <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-green-400 rounded-full border-2 border-white"></div>
+              <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-success rounded-full border-2 border-white"></div>
             </div>
             <div>
               <h3 className="font-bold text-white text-lg">PawsBot</h3>
@@ -164,8 +165,8 @@ export const PawsBot = forwardRef<HTMLDivElement>(function PawsBot(_, ref) {
                 className={cn(
                   "max-w-[85%] rounded-2xl px-4 py-2.5 shadow-sm",
                   msg.role === 'user'
-                    ? "bg-gradient-to-br from-[hsl(280,45%,70%)] to-[hsl(340,60%,75%)] text-white rounded-br-md"
-                    : "bg-white text-foreground rounded-bl-md border border-[hsl(340,30%,90%)]"
+                    ? "bg-gradient-to-br from-glow-sky to-glow-periwinkle text-white rounded-br-md"
+                    : "bg-white text-foreground rounded-bl-md border border-border"
                 )}
               >
                 <p className="text-sm leading-relaxed whitespace-pre-wrap">{msg.content}</p>
@@ -175,11 +176,11 @@ export const PawsBot = forwardRef<HTMLDivElement>(function PawsBot(_, ref) {
 
           {isLoading && (
             <div className="flex justify-start">
-              <div className="bg-white rounded-2xl rounded-bl-md px-4 py-3 shadow-sm border border-[hsl(340,30%,90%)]">
+              <div className="bg-white rounded-2xl rounded-bl-md px-4 py-3 shadow-sm border border-border">
                 <div className="flex items-center gap-1">
-                  <span className="w-2 h-2 bg-[hsl(340,60%,75%)] rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
-                  <span className="w-2 h-2 bg-[hsl(280,45%,70%)] rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
-                  <span className="w-2 h-2 bg-[hsl(145,50%,70%)] rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+                  <span className="w-2 h-2 bg-glow-peach rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                  <span className="w-2 h-2 bg-glow-sky rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                  <span className="w-2 h-2 bg-glow-periwinkle rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
                 </div>
               </div>
             </div>
@@ -198,8 +199,8 @@ export const PawsBot = forwardRef<HTMLDivElement>(function PawsBot(_, ref) {
                 disabled={isLoading}
                 className={cn(
                   "text-xs px-3 py-1.5 rounded-full transition-all",
-                  "bg-white border border-[hsl(340,30%,85%)] text-foreground",
-                  "hover:bg-[hsl(340,50%,95%)] hover:border-[hsl(340,50%,75%)] hover:scale-105",
+                  "bg-white border border-border text-foreground",
+                  "hover:bg-primary/10 hover:border-primary hover:scale-105",
                   "disabled:opacity-50 disabled:cursor-not-allowed",
                   "shadow-sm"
                 )}
@@ -211,7 +212,7 @@ export const PawsBot = forwardRef<HTMLDivElement>(function PawsBot(_, ref) {
         </div>
 
         {/* Input */}
-        <form onSubmit={handleSubmit} className="p-4 pt-2 border-t border-[hsl(340,30%,90%)]">
+        <form onSubmit={handleSubmit} className="p-4 pt-2 border-t border-border">
           <div className="flex gap-2">
             <input
               type="text"
@@ -221,8 +222,8 @@ export const PawsBot = forwardRef<HTMLDivElement>(function PawsBot(_, ref) {
               disabled={isLoading}
               className={cn(
                 "flex-1 rounded-full px-4 py-2.5 text-sm border-2 transition-all",
-                "border-[hsl(340,30%,88%)] bg-white",
-                "focus:outline-none focus:border-[hsl(340,60%,75%)] focus:ring-2 focus:ring-[hsl(340,60%,75%)]/20",
+                "border-border bg-white",
+                "focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20",
                 "placeholder:text-muted-foreground/60",
                 "disabled:opacity-50"
               )}
@@ -233,8 +234,8 @@ export const PawsBot = forwardRef<HTMLDivElement>(function PawsBot(_, ref) {
               disabled={isLoading || !input.trim()}
               className={cn(
                 "rounded-full h-10 w-10 shrink-0",
-                "bg-gradient-to-br from-[hsl(340,60%,75%)] to-[hsl(280,45%,70%)]",
-                "hover:from-[hsl(340,65%,70%)] hover:to-[hsl(280,50%,65%)]",
+                "bg-gradient-to-br from-glow-sky to-glow-periwinkle",
+                "hover:from-primary hover:to-accent",
                 "disabled:opacity-50"
               )}
             >

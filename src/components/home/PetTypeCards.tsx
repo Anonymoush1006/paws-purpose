@@ -8,29 +8,29 @@ import { ArrowRight, MessageCircle } from 'lucide-react';
 
 const petOrder: PetType[] = ['dog', 'cat', 'rabbit', 'fish', 'bird', 'hamster', 'guinea_pig', 'turtle', 'other'];
 
-// Color mappings for each pet type
+// Color mappings using new palette
 const petGradients: Record<PetType, string> = {
-  dog: 'from-orange-100 to-amber-50 hover:from-orange-200 hover:to-amber-100',
-  cat: 'from-purple-100 to-violet-50 hover:from-purple-200 hover:to-violet-100',
-  rabbit: 'from-pink-100 to-rose-50 hover:from-pink-200 hover:to-rose-100',
-  fish: 'from-cyan-100 to-sky-50 hover:from-cyan-200 hover:to-sky-100',
-  bird: 'from-yellow-100 to-amber-50 hover:from-yellow-200 hover:to-amber-100',
-  hamster: 'from-amber-100 to-orange-50 hover:from-amber-200 hover:to-orange-100',
-  guinea_pig: 'from-orange-100 to-amber-50 hover:from-orange-200 hover:to-amber-100',
-  turtle: 'from-emerald-100 to-green-50 hover:from-emerald-200 hover:to-green-100',
-  other: 'from-slate-100 to-gray-50 hover:from-slate-200 hover:to-gray-100',
+  dog: 'from-glow-peach/30 to-glow-yellow/30 hover:from-glow-peach/50 hover:to-glow-yellow/50',
+  cat: 'from-glow-periwinkle/30 to-accent/30 hover:from-glow-periwinkle/50 hover:to-accent/50',
+  rabbit: 'from-pink-200/40 to-glow-peach/30 hover:from-pink-200/60 hover:to-glow-peach/50',
+  fish: 'from-glow-sky/30 to-primary/30 hover:from-glow-sky/50 hover:to-primary/50',
+  bird: 'from-glow-yellow/30 to-glow-mint/30 hover:from-glow-yellow/50 hover:to-glow-mint/50',
+  hamster: 'from-glow-peach/40 to-amber-200/30 hover:from-glow-peach/60 hover:to-amber-200/50',
+  guinea_pig: 'from-glow-mint/40 to-glow-yellow/30 hover:from-glow-mint/60 hover:to-glow-yellow/50',
+  turtle: 'from-glow-mint/40 to-emerald-200/30 hover:from-glow-mint/60 hover:to-emerald-200/50',
+  other: 'from-glow-sky/30 to-glow-periwinkle/30 hover:from-glow-sky/50 hover:to-glow-periwinkle/50',
 };
 
 const petBorderColors: Record<PetType, string> = {
-  dog: 'hover:border-orange-300',
-  cat: 'hover:border-purple-300',
-  rabbit: 'hover:border-pink-300',
-  fish: 'hover:border-cyan-300',
-  bird: 'hover:border-yellow-300',
-  hamster: 'hover:border-amber-300',
-  guinea_pig: 'hover:border-orange-300',
-  turtle: 'hover:border-emerald-300',
-  other: 'hover:border-slate-300',
+  dog: 'hover:border-glow-peach',
+  cat: 'hover:border-glow-periwinkle',
+  rabbit: 'hover:border-pink-400',
+  fish: 'hover:border-glow-sky',
+  bird: 'hover:border-glow-yellow',
+  hamster: 'hover:border-amber-400',
+  guinea_pig: 'hover:border-glow-mint',
+  turtle: 'hover:border-emerald-400',
+  other: 'hover:border-primary',
 };
 
 export function PetTypeCards() {
