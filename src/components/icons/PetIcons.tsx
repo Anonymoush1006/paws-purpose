@@ -17,7 +17,7 @@ const sizeClasses = {
 export function DogIcon({ className, size = 'md' }: PetIconProps) {
   return (
     <div className={cn(
-      "flex items-center justify-center rounded-full bg-gradient-to-br from-orange-100 to-orange-200 shadow-soft",
+      "flex items-center justify-center rounded-full bg-gradient-to-br from-glow-peach/30 to-glow-yellow/30 shadow-soft",
       sizeClasses[size],
       className
     )}>
@@ -29,7 +29,7 @@ export function DogIcon({ className, size = 'md' }: PetIconProps) {
 export function CatIcon({ className, size = 'md' }: PetIconProps) {
   return (
     <div className={cn(
-      "flex items-center justify-center rounded-full bg-gradient-to-br from-purple-100 to-purple-200 shadow-soft",
+      "flex items-center justify-center rounded-full bg-gradient-to-br from-glow-periwinkle/30 to-accent/30 shadow-soft",
       sizeClasses[size],
       className
     )}>
@@ -41,7 +41,7 @@ export function CatIcon({ className, size = 'md' }: PetIconProps) {
 export function FishIcon({ className, size = 'md' }: PetIconProps) {
   return (
     <div className={cn(
-      "flex items-center justify-center rounded-full bg-gradient-to-br from-cyan-100 to-cyan-200 shadow-soft",
+      "flex items-center justify-center rounded-full bg-gradient-to-br from-glow-sky/30 to-primary/30 shadow-soft",
       sizeClasses[size],
       className
     )}>
@@ -53,7 +53,7 @@ export function FishIcon({ className, size = 'md' }: PetIconProps) {
 export function BirdIcon({ className, size = 'md' }: PetIconProps) {
   return (
     <div className={cn(
-      "flex items-center justify-center rounded-full bg-gradient-to-br from-yellow-100 to-yellow-200 shadow-soft",
+      "flex items-center justify-center rounded-full bg-gradient-to-br from-glow-yellow/30 to-glow-mint/30 shadow-soft",
       sizeClasses[size],
       className
     )}>
@@ -65,7 +65,7 @@ export function BirdIcon({ className, size = 'md' }: PetIconProps) {
 export function RabbitIcon({ className, size = 'md' }: PetIconProps) {
   return (
     <div className={cn(
-      "flex items-center justify-center rounded-full bg-gradient-to-br from-pink-100 to-pink-200 shadow-soft",
+      "flex items-center justify-center rounded-full bg-gradient-to-br from-pink-200/50 to-glow-peach/30 shadow-soft",
       sizeClasses[size],
       className
     )}>
@@ -77,7 +77,7 @@ export function RabbitIcon({ className, size = 'md' }: PetIconProps) {
 export function TurtleIcon({ className, size = 'md' }: PetIconProps) {
   return (
     <div className={cn(
-      "flex items-center justify-center rounded-full bg-gradient-to-br from-emerald-100 to-emerald-200 shadow-soft",
+      "flex items-center justify-center rounded-full bg-gradient-to-br from-glow-mint/40 to-emerald-200/40 shadow-soft",
       sizeClasses[size],
       className
     )}>
@@ -86,34 +86,28 @@ export function TurtleIcon({ className, size = 'md' }: PetIconProps) {
   );
 }
 
-// CRITICAL: Hamster with wheel icon for differentiation
+// CRITICAL: Hamster uses 🐿️ (chipmunk) for clear differentiation
 export function HamsterIcon({ className, size = 'md' }: PetIconProps) {
   return (
     <div className={cn(
-      "flex items-center justify-center rounded-full bg-gradient-to-br from-amber-100 to-amber-200 shadow-soft relative",
+      "flex items-center justify-center rounded-full bg-gradient-to-br from-glow-peach/40 to-amber-200/40 shadow-soft",
       sizeClasses[size],
       className
     )}>
-      <span role="img" aria-label="Hamster" className="relative">
-        🐹
-        <span className="absolute -bottom-1 -right-2 text-[0.5em] opacity-80">⚙️</span>
-      </span>
+      <span role="img" aria-label="Hamster">🐿️</span>
     </div>
   );
 }
 
-// CRITICAL: Guinea Pig with carrot icon for differentiation
+// CRITICAL: Guinea Pig uses 🦔 (hedgehog) for clear differentiation - round body similar look
 export function GuineaPigIcon({ className, size = 'md' }: PetIconProps) {
   return (
     <div className={cn(
-      "flex items-center justify-center rounded-full bg-gradient-to-br from-orange-100 to-amber-200 shadow-soft relative",
+      "flex items-center justify-center rounded-full bg-gradient-to-br from-glow-mint/40 to-glow-yellow/40 shadow-soft",
       sizeClasses[size],
       className
     )}>
-      <span role="img" aria-label="Guinea Pig" className="relative">
-        🐹
-        <span className="absolute -bottom-1 -right-2 text-[0.5em] opacity-80">🥕</span>
-      </span>
+      <span role="img" aria-label="Guinea Pig">🦔</span>
     </div>
   );
 }
@@ -121,7 +115,7 @@ export function GuineaPigIcon({ className, size = 'md' }: PetIconProps) {
 export function OtherPetsIcon({ className, size = 'md' }: PetIconProps) {
   return (
     <div className={cn(
-      "flex items-center justify-center rounded-full bg-gradient-to-br from-slate-100 to-slate-200 shadow-soft",
+      "flex items-center justify-center rounded-full bg-gradient-to-br from-glow-sky/30 to-glow-periwinkle/30 shadow-soft",
       sizeClasses[size],
       className
     )}>
@@ -149,6 +143,8 @@ export function getPetIcon(petType: string, props?: PetIconProps) {
 }
 
 // Display text with proper emoji differentiation
+// Hamster: 🐿️ (chipmunk - small energetic rodent)
+// Guinea Pig: 🦔 (hedgehog - round body pet)
 export function getPetEmoji(petType: string): string {
   const emojis: Record<string, string> = {
     dog: '🐕',
@@ -157,8 +153,8 @@ export function getPetEmoji(petType: string): string {
     bird: '🐦',
     rabbit: '🐰',
     turtle: '🐢',
-    hamster: '🐹⚙️',
-    guinea_pig: '🐹🥕',
+    hamster: '🐿️',
+    guinea_pig: '🦔',
     other: '🐾',
   };
   return emojis[petType] || '🐾';

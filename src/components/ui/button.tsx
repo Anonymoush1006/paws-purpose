@@ -11,11 +11,13 @@ const buttonVariants = cva(
       variant: {
         default: "bg-primary text-primary-foreground shadow-md hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 active:translate-y-0",
         destructive: "bg-destructive text-destructive-foreground shadow-md hover:bg-destructive/90 hover:shadow-lg hover:shadow-destructive/25",
-        outline: "border-2 border-input bg-background hover:bg-accent/10 hover:border-primary/50 hover:text-accent-foreground hover:shadow-md",
+        outline: "border-2 border-primary/30 bg-background text-foreground hover:bg-primary/10 hover:border-primary hover:text-foreground hover:shadow-md",
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80 hover:shadow-md",
-        ghost: "hover:bg-accent/10 hover:text-accent-foreground",
+        ghost: "text-foreground hover:bg-primary/10 hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         glow: "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-1 active:translate-y-0",
+        warm: "bg-gradient-to-r from-glow-peach to-glow-yellow text-foreground shadow-md hover:shadow-lg hover:shadow-glow-peach/30 hover:-translate-y-0.5",
+        cool: "bg-gradient-to-r from-glow-sky to-glow-periwinkle text-primary-foreground shadow-md hover:shadow-lg hover:shadow-glow-sky/30 hover:-translate-y-0.5",
       },
       size: {
         default: "h-11 px-5 py-2",

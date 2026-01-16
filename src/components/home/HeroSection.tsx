@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, MessageCircle, Sparkles } from 'lucide-react';
 import heroVideo from '@/assets/hero-video.mp4';
+import { getPetEmoji } from '@/components/icons/PetIcons';
 
 export function HeroSection() {
   return (
@@ -19,7 +20,7 @@ export function HeroSection() {
         </video>
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/70 to-background" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-glow-peach/10 via-transparent to-glow-periwinkle/10" />
       </div>
 
       {/* Floating Decorative Elements */}
@@ -30,8 +31,8 @@ export function HeroSection() {
         <div className="absolute bottom-20 right-10 text-4xl animate-float-delayed opacity-20">🐾</div>
         
         {/* Glowing orbs */}
-        <div className="absolute top-1/4 -left-20 w-72 h-72 bg-primary/20 rounded-full blur-[100px] animate-pulse-glow" />
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-accent/20 rounded-full blur-[120px] animate-pulse-glow" />
+        <div className="absolute top-1/4 -left-20 w-72 h-72 bg-glow-sky/20 rounded-full blur-[100px] animate-pulse-glow" />
+        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-glow-periwinkle/20 rounded-full blur-[120px] animate-pulse-glow" />
       </div>
 
       {/* Content */}
@@ -67,7 +68,7 @@ export function HeroSection() {
             <Button 
               size="lg" 
               variant="outline" 
-              className="w-full sm:w-auto gap-2 text-lg px-8 py-6 rounded-full bg-card/80 backdrop-blur-sm border-2 hover:bg-card hover:border-primary/50 transition-all"
+              className="w-full sm:w-auto gap-2 text-lg px-8 py-6 rounded-full bg-card/80 backdrop-blur-sm border-2"
               onClick={() => {
                 // Trigger PawsBot opening
                 const pawsBotButton = document.querySelector('[aria-label="Open PawsBot chat"]') as HTMLButtonElement;
@@ -82,25 +83,25 @@ export function HeroSection() {
           {/* Pet Icons Row */}
           <div className="flex justify-center gap-4 flex-wrap">
             {[
-              { emoji: '🐕', label: 'Dogs', delay: '0ms' },
-              { emoji: '🐱', label: 'Cats', delay: '100ms' },
-              { emoji: '🐰', label: 'Rabbits', delay: '200ms' },
-              { emoji: '🐟', label: 'Fish', delay: '300ms' },
-              { emoji: '🐦', label: 'Birds', delay: '400ms' },
-              { emoji: '🐹⚙️', label: 'Hamsters', delay: '500ms' },
-              { emoji: '🐹🥕', label: 'Guinea Pigs', delay: '600ms' },
-              { emoji: '🐢', label: 'Turtles', delay: '700ms' },
-            ].map(({ emoji, label, delay }) => (
+              { type: 'dog', label: 'Dogs', delay: '0ms' },
+              { type: 'cat', label: 'Cats', delay: '100ms' },
+              { type: 'rabbit', label: 'Rabbits', delay: '200ms' },
+              { type: 'fish', label: 'Fish', delay: '300ms' },
+              { type: 'bird', label: 'Birds', delay: '400ms' },
+              { type: 'hamster', label: 'Hamsters', delay: '500ms' },
+              { type: 'guinea_pig', label: 'Guinea Pigs', delay: '600ms' },
+              { type: 'turtle', label: 'Turtles', delay: '700ms' },
+            ].map(({ type, label, delay }) => (
               <Link 
                 key={label} 
-                to={`/learn/${label.toLowerCase().replace(' ', '_')}`}
+                to={`/learn/${type}`}
                 className="group"
               >
                 <div 
-                  className="flex flex-col items-center gap-2 p-3 rounded-2xl bg-card/60 backdrop-blur-sm border border-transparent hover:border-primary/30 hover:bg-card/90 transition-all duration-300 hover:shadow-glow-pink hover:-translate-y-1"
+                  className="flex flex-col items-center gap-2 p-3 rounded-2xl bg-card/60 backdrop-blur-sm border border-transparent hover:border-primary/30 hover:bg-card/90 transition-all duration-300 hover:shadow-glow-sky hover:-translate-y-1"
                   style={{ animationDelay: delay }}
                 >
-                  <span className="text-3xl group-hover:scale-110 transition-transform duration-300">{emoji}</span>
+                  <span className="text-3xl group-hover:scale-110 transition-transform duration-300">{getPetEmoji(type)}</span>
                   <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors">{label}</span>
                 </div>
               </Link>

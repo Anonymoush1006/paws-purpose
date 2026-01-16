@@ -81,9 +81,11 @@ export default {
         silver: "hsl(var(--silver))",
         bronze: "hsl(var(--bronze))",
         glow: {
-          pink: "hsl(var(--glow-pink))",
-          lavender: "hsl(var(--glow-lavender))",
+          peach: "hsl(var(--glow-peach))",
+          yellow: "hsl(var(--glow-yellow))",
           mint: "hsl(var(--glow-mint))",
+          sky: "hsl(var(--glow-sky))",
+          periwinkle: "hsl(var(--glow-periwinkle))",
         },
       },
       borderRadius: {
